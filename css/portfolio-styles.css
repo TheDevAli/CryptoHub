@@ -1,0 +1,531 @@
+/*************************
+/*	Global Settings
+/************************/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	font-family: 'poppins', sans-serif;
+	background-color: #9a27c4;
+	background-size: 200vw 200vh;
+	overflow: hidden;
+}
+
+/****************************************************
+/*						  Custom Scrollbar
+/************* Reference: w3schools ****************/
+::-webkit-scrollbar {
+	width: 0.5rem;
+}				
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff960b;
+}
+
+/************************************
+/*      Navigation Menu
+/************************************/
+#menuToggler {
+	position: fixed;
+	top: 0.5rem;
+	right: 0.5rem;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+	user-select: none;
+	font-size: 3em;
+	text-align: right;
+	line-height: 1em;
+	padding: 0 1rem;
+	z-index: 2;
+}
+
+nav {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	background: hsl(0 0% 100% / 0.1);
+	backdrop-filter: blur(3rem);
+	opacity: 0;
+	transform: translateX(100vw);
+	transition: transform 0.4s, opacity 0.6s;
+	justify-content: center;
+	z-index: 1;
+}
+
+nav.open {
+	transition: transform 0.4s, opacity 0.2s;
+	transform: none;
+	opacity: 1;
+}
+
+nav a {
+	font-size: 2em;
+	text-decoration: none;
+	padding: 0.5em 1em;
+	color: #fff;
+	text-align: center;
+}
+	
+nav a:hover {
+	color:#ff960b;
+	text-decoration: underline overline;
+}
+
+.active {
+	color:#ff0000;
+}
+
+.active:hover {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+/*****************************
+/*		What Is Portfolio?
+/******************************/
+.description {
+	width: 100%;
+	height: 15em;
+	padding: 3em 0.25em;
+	animation-name: slideInFromLeft;
+	animation-duration: 1.5s;
+}
+
+@keyframes slideInFromLeft {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.card {
+	position: relative;
+}
+  
+.card-side {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	height: 10em;
+	border-radius: 15px;
+	transition: all 0.8s ease;
+	backface-visibility: hidden;
+	position: absolute;
+	color: white
+}
+  
+.card-side.back {
+	transform: rotateY(-180deg);
+	font-size: 16px;
+	line-height: 1.25em;
+	color: #fff;
+	background-color: #1595D2;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-side.back a {
+	color: #6a359c;
+	font-weight: bold;
+}
+  
+.card-side.front {
+	color: #000;
+	background-color: #ff960b;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+  
+.card:hover .card-side.front {
+	transform: rotateY(180deg);
+}
+  
+.card:hover .card-side.back {
+	transform: rotateY(0deg);
+}
+
+/**************************
+/*	Add Crypto Dropdown
+/**************************/
+.dropdown-crypto {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.dropdown-crypto h2 {
+	display: none;
+}
+
+form {
+	position: absolute;
+	width: 95%;
+}
+  
+.cryptoDropdown,
+.cryptoList {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+  
+.cryptoDropdown {
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	height: 4rem;
+	font-size: 22px;
+	padding: 1rem;
+	background-color: #e5e5e5;
+	border: 3px solid transparent;
+	transition: .3s ease-in-out;
+}
+	
+.cryptoDropdown:hover {
+	background-color: #F7bd6b;
+	cursor: pointer;
+}
+	
+.cryptoDropdown:focus,
+.cryptoDropdown.open {
+	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
+	outline: 0;
+	background-color: #F7bd6b;
+	color: #000;  
+}
+  
+.cryptoList {
+	list-style: none;
+	margin-top: 4rem;
+	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
+	overflow: hidden;
+	max-height: 0;
+	transition: .3s ease-in-out;
+}
+	
+.cryptoList.open {
+	max-height: 320px;
+	overflow: auto;
+}
+	
+.cryptoList li {
+	position: relative;
+	height: 4rem;
+	background-color: #e5e5e5;
+	padding: 1rem;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	transition: background-color .3s;
+	opacity: 1;
+}
+	  
+.cryptoList li:hover {
+	background-color: #F7bd6b;
+}
+	  
+.cryptoList li.closed {
+	max-height: 0;
+	overflow: hidden;
+	padding: 0;
+	opacity: 0;
+}
+
+/**************************
+/*		Portfolio Table
+/**************************/
+.portfolio {
+	width: 100%;
+	height: 80vh;
+	padding: 5em 0.2em;
+}
+
+.portfolio h2 {
+	display: none;
+}
+
+.portfolio-scroller {
+	height: 75%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.portfolio #portfolio-table {
+	font-size: 14px;
+	background-color: #fff;
+	height: fit-content;
+	width: 100%;
+	border-style: solid;
+	border-color: #fff;
+	border-width: 2px;
+}
+
+.portfolio #portfolio-table thead th {
+	background-color: orange;
+	color: #000;
+	padding: 10px 5px;
+}
+
+.amount {
+	width: 10%;
+}
+
+.portfolio #portfolio-data {
+	background-color: rgb(226, 175, 79);
+}
+
+.portfolio #portfolio-data tr {
+	height: 1em;
+}
+
+.portfolio #portfolio-data tr:hover {
+	background-color: #ddd;
+	font-style: italic;
+}
+
+#removeCoinBtn {
+	background-color: #ff0000;
+	color: #fff;
+	font-weight: bold;
+	width: 2.5em;
+	height: 2.5em;
+	border: none;
+}
+
+#removeCoinBtn:hover {
+	background-color: #333;
+	cursor: pointer;
+}
+
+#amountInputField {
+	width: 100%;
+	height: 100%;
+}
+
+#portfolioTotal {
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+	width: 100%;
+	height: 3.5em;
+	background-color: #1595D2;
+	border-style: solid;
+	border-color: #fff;
+}
+
+/************************
+/*	Save Portfolio Btn
+/************************/
+#btnsContainers {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	flex-direction: row;
+	column-gap: 0.5rem;
+}
+
+#btnsContainers input {
+	width: 50vw;
+	color: #000;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 5px 15px;
+	border-style: solid;
+	border-color: #000;
+	margin-bottom: 0.5em;
+	transition: linear 0.5s;
+}
+
+#saveBtn {
+	background-color: lightgreen;
+}
+
+#clearBtn {
+	background-color: lightcoral;
+}
+
+#saveBtn:hover {
+	cursor: pointer;
+	box-shadow: inset 950px 0px 1px green;
+}
+
+#clearBtn:hover {
+	cursor: pointer;
+	box-shadow: inset -950px 0px 1px red;
+}
+
+/***************************
+/*      FOOTER
+/**************************/
+footer {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.5rem;
+	padding: 2%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: Black;
+	color: white;
+}
+	
+footer p {
+	font-size: 16px;
+}
+
+/*media queries for tablet sized devices*/
+/*bigger than default, but smaller than desktop size*/
+@media screen and (min-width: 600px) {
+	.description p {
+		padding: 0.5em;
+		font-size: 18px;
+	}
+
+	.portfolio #portfolio-table,
+	#portfolioTotal {
+		font-size: 18px;
+	} 	
+}
+
+/*media queries for desktop sized devices */
+@media screen and (min-width: 768px) {
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	/*hide menu icon for large devices */
+	#menuToggler {
+		display: none;
+	}
+
+	/*re-style the navigation menu for larger devices */
+	nav {
+		display: flex;
+		flex-direction: row;
+		transform: none;
+		background-color: rgba(0,0,0,0.5);
+		opacity: 1;
+		height: auto;
+		position: static;
+		justify-content: center;
+		padding: 2.5vh;
+	}
+
+	nav a {
+		font-size: 1.3em;
+		flex-grow: 0;
+	}
+
+	nav a:hover {
+		text-decoration: underline overline;
+	}
+
+	.active {
+		color: #ff960b;
+	}
+
+	.active:hover {
+		color: #ff960b;
+	}
+
+	/*card*/
+	.description {
+		height: 10em;
+		padding: 1em;
+	}
+
+	.card-side {
+		height: 5em;
+	}
+
+	/*dropdown*/
+	.dropdown-crypto {
+		display: flex;
+		justify-content: center;
+		margin-top: 3rem;
+		align-items:flex-start;
+	}
+
+	form {
+		width: 35em;
+	}
+
+	/*portfolio table*/
+	.portfolio {
+		width: 100%;
+		margin-top: 5em;
+		padding: 1em;
+	}
+
+	.cryptoList li {
+		font-size: 1.1rem;
+	}
+
+	.portfolio-scroller {
+		height: 40%;
+	}
+
+	.portfolio #portfolio-table {
+		width: 100%;
+	}
+
+	.portfolio #portfolio-table thead th {
+		font-size: 22px;
+	}
+
+	.portfolio #portfolio-data tr td {
+		padding: 0.25em;
+		font-size: 20px;
+	}
+
+	#amountInputField {
+		font-size: 20px;
+	}
+
+	#portfolioTotal {
+		font-size: 22px;
+	}
+
+	.removeCrypto {
+		height: 2rem;
+	}
+
+	#removeCoinBtn {
+		width: 100%;
+		height: 2rem;
+		font-size: 16px;
+	}
+
+	footer {
+		height: 3em;
+	}
+
+	footer p {
+		font-size: 20px;
+	}
+}

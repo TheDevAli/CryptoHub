@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Simulator</title>
+    <link rel="stylesheet" href="css/portfolio-styles.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+  </head>
+
+  <body>
+    <!-- Navigation Menu -->
+    <header class="portfolio-header">
+      <div id="menuToggler">&#8801;</div>
+        <nav id="menu">				
+					<a href="index.html" aria-label="CryptoHub homepage">Home</a>
+					<a href="market.html" aria-label="CryptoHub market page">Market</a>
+					<a href="portfolio.html" aria-label="CryptoHub portfolio simulator page" class="active">Portfolio Simulator</a>		
+					<a href="about.html" aria-label="CryptoHub about page">About CryptoHub</a>					
+        </nav>
+    </header>
+
+    <main>
+      <!-- What is portfolio simulator animated cards -->
+      <section class="description" aria-label="What is Portfolio Simulator?">
+        <div class="card">
+          <div class="card-side front">
+            <h1>What Is Portfolio Simulator?</h1>
+          </div>
+          <div class="card-side back">
+            <p>Simulate a crypto wallet, Add desired coins using the dropdown, modify the quantity and review your virtual wallet worth.
+            Use our <a href="market.html" id="linkToMarket">Crypto Live Market</a> to view all supported coins. Remember to Save your
+            portfolio so that it's ready to directly be adjusted the next time you visit CryptoHub.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dropdown menu of cryptocurrencies -->
+      <section class="dropdown-crypto" aria-label="Dropdown of supported cryptocurrencies">
+        <h2>Cryptocurrency Dropdown List</h2>
+        <form>
+          <input class="cryptoDropdown" type="text" value="" placeholder="Add crypto">
+          <ul class="cryptoList"></ul>
+        </form>
+      </section>
+
+      <!-- Portfolio simulator table, and save, clear buttons -->
+      <section class="portfolio" aria-label="Portfolio simulator">
+        <div id="btnsContainers">
+          <input type="button" value="Save" id="saveBtn" hidden>
+          <input type="button" value="Clear" id="clearBtn" hidden>
+        </div>
+        <h2>Portfolio Simulator</h2>
+        <table id="portfolioTotal" hidden>
+          <tr>
+            <td id="totalValue">Portfolio Total: $0.00</td>
+          </tr>
+        </table>
+        <div class="portfolio-scroller">
+          <div class="table-container">
+            <table id="portfolio-table">
+              <thead>
+                <tr>
+                  <th class="crypto">Crypto</th>
+                  <th class="price">Price (USD)</th>
+                  <th class="amount">Amount</th>
+                  <th class="amountUSD">Amount (USD)</th>
+                  <th class="removeCrypto"></th>
+                </tr>
+              </thead>
+              <tbody id="portfolio-data"></tbody>  
+            </table>
+          </div>
+        </div>
+      </section>              
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2022 | Mohammed Ali Butt<br></p>
+    </footer>
+
+    <script src="js/portfolio.js"></script>
+    <script src="js/dynamic-menu.js"></script>
+  </body>
+  
+</html>

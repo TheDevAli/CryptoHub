@@ -1,0 +1,403 @@
+
+/*************************
+/*	Global Settings
+/************************/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'poppins', sans-serif;
+}
+
+/****************************************************
+/*				Custom Scrollbar
+/************* Reference: w3schools ****************/
+::-webkit-scrollbar {
+	width: 0.5rem;
+}				
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff960b;
+}
+
+/************************************
+/*    Header & Navigation Menu
+/***********************************/
+.container {
+	width: 100%;
+	height: 100vh;
+	background-image: url('../imgs/mobile-banner.jpeg');
+	background-position: center;
+	background-size: cover;
+	background-color: #000;
+	overflow: hidden;
+}
+
+#menuToggler {
+	position: fixed;
+	top: 0.5rem;
+	right: 0.5rem;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+	user-select: none;
+	font-size: 3em;
+	text-align: right;
+	line-height: 1em;
+	padding: 0 1rem;
+	z-index: 2;
+}
+
+nav {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	background: hsl(0 0% 100% / 0.1);
+	backdrop-filter: blur(3rem);
+	opacity: 0;
+	transform: translateX(100vw);
+	transition: transform 0.4s, opacity 0.6s;
+	justify-content: center;
+	z-index: 1;
+}
+
+nav.open {
+	transition: transform 0.4s, opacity 0.2s;
+	transform: none;
+	opacity: 1;
+}
+
+nav a {
+  font-size: 2em;
+	text-decoration: none;
+	padding: 0.5em 1em;
+	color: #fff;
+	text-align: center;
+}
+	
+nav a:hover {
+	color:#ff960b;
+	text-decoration: underline overline;
+}
+
+.active {
+	color:#ff0000;
+}
+
+.active:hover {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+
+/****************************************
+/* Text On Homepage Background (Header)
+/***************************************/
+.header-content {   
+	animation-duration: 2s;
+	animation-name: slideIn;
+	margin-top: 17em;
+	padding: 5vw;			
+	background-color: rgba(0, 0, 0, 0.7);
+	opacity: 0.75;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.header-content h1 {
+	font-size: 70px;
+	margin-bottom: 15px;
+	color: #fff;								
+}
+
+.header-content h1 span {
+	color: #ff960b;
+}
+
+.header-content p {
+	line-height: 22px;
+	font-size: 18px;
+	color: #fff
+}
+
+.header-content .btn {
+	display: inline-block;
+	margin-top: 30px;
+	background: #ff960b;
+	color: #fff;
+	text-decoration: none;
+	padding: 15px 30px;
+	border-radius: 30px;
+	border: none;
+}
+
+.header-content .btn:hover {
+	background-color: #1595D2;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}						
+
+/****************************
+/*		Crypto Description
+/****************************/
+#crypto-desc {
+	padding: 2em;
+	align-items: center;
+	justify-content: center;
+	background-color: #e28743;
+	color: #fff;
+}
+                             
+#crypto-desc h2 {
+	text-align: center;
+	font-size: 45px;
+}
+                             
+#crypto-desc p {
+	padding: 1em;
+	text-align: center;
+	line-height: 35px;
+	font-size: 18px;
+}
+
+#mobile-header {
+	display: block;
+}
+
+#crypto-definition,
+#desktop-header {
+	display: none;
+}
+
+/****************************
+/*		Big Three
+/****************************/
+.big-three {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 2em;
+	background-color: #696969;
+}
+
+.big-three h2 {
+	color: #fff;
+	font-size: 45px;
+}
+
+.crypto-card { 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.crypto-card .card { 
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	border-radius: 20px;
+	padding: 2px 16px;
+	background-color: #333;
+	color:#fff;
+	text-decoration: none;
+}
+
+.crypto-card .card:hover {
+	background-color: silver;
+	color: #000;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.crypto-card img {
+	display: inline-block;
+	width: 5.5em;
+	height: 5.5em;
+	padding: 20px;
+	border-color: #000;
+	border-width: 2px;
+	border-radius: 16px;
+}
+
+.crypto-card div h3 {
+	font-size: 18px;
+	margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.crypto-card p {
+	padding-bottom: 15%;
+	font-size: 18px;
+}
+
+/*********************
+/*		Footer
+/*********************/
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.5rem;
+	padding: 1em;
+	bottom: 0;
+	background-color: #000;
+	color: #fff;
+}
+	
+footer p {
+	font-size: 16px;
+}
+
+#toTopBtn {
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 20px; /* Place the button at the bottom of the page */
+	right: 5px; /* Place the button 5px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: #1595D2; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	padding: 15px; /* Some padding */
+	border-radius: 10px; /* Rounded corners */
+	font-size: 18px; /* Increase font size */
+}
+
+#toTopBtn:hover {
+	background-color: #333; /* Add a dark-grey background on hover */
+}
+
+@media screen and (min-width: 768px) {
+	/* allow scrolling */
+	body {
+		overflow: visible;
+	}
+
+	/* change background image on index */
+	.container {
+		background-image: url('../imgs/desktop-banner.jpg');
+		background-size: cover;
+	}
+
+	/* make the header text more readable in larger devices */
+	.header-content {
+		animation-duration: 3s;
+		background-color: transparent;
+		opacity: 1;
+		margin-top: 20vh;
+	}
+
+	/*hide menu icon for large devices */
+	#menuToggler {
+		display: none;
+	}
+
+	/*re-style the navigation menu for larger devices */
+	nav {
+		display: flex;
+		flex-direction: row;
+		transform: none;
+		background-color: rgba(0, 0, 0, 0.7);
+		opacity: 0.75;
+		height: auto;
+		position: static;
+		justify-content: center;
+		padding: 2.5vh;
+	}
+
+	nav a {
+		font-size: 1.3em;
+		flex-grow: 0;
+	}
+
+	.active {
+		color: #ff960b;
+	}
+
+	.active:hover {
+		color: #ff960b;
+	}
+
+	/*crypto desc*/
+	#crypto-definition {
+		display: block;
+	}
+
+	#crypto-desc p {
+		font-size: 20px;
+	}
+
+	#mobile-header {
+		display: none;
+	}
+
+	#desktop-header {
+		display: block;
+	}
+
+	/* making the crypto cards for big three element large device friendly */
+	.big-three {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.crypto-card {
+		flex-direction: row;
+		justify-content: center;
+		column-gap: 1rem;
+		width: 50%;
+		height: 100%;
+	}
+
+	.crypto-card .card {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.crypto-card img {
+		width: 7.5em;
+		height: 7.5em;
+	}
+
+	.crypto-card div h3 {
+		font-size: 20px;
+	}
+	
+	#toTopBtn {
+		right: 30px; /* Place the button 30px from the right */
+	}
+
+	footer {
+		height: 3em;
+		font-size: 20px;
+	}
+
+	footer p {
+		font-size: 20px;
+	}
+}

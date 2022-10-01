@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market</title>
+    <link rel="stylesheet" href="css/market-styles.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+  </head>
+
+  <body>
+    <header class="market-header">
+      <!-- Navigation Menu -->
+      <div id="menuToggler">&#8801;</div>
+        <nav id="menu">				
+					<a href="index.html" aria-label="CryptoHub homepage">Home</a>
+					<a href="market.html" aria-label="CryptoHub market page" class="active">Market</a>
+					<a href="portfolio.html" aria-label="CryptoHub portfolio simulator page">Portfolio Simulator</a>		
+					<a href="about.html" aria-label="CryptoHub about page">About CryptoHub</a>				
+        </nav>
+    </header>
+
+    <main>
+      <!-- Trending coins container -->
+      <section class="trending-container" aria-label="Cryptohub's top three trending coins">
+        <div class="title">
+          <h4 id="trending-title">&#x1f525;Trending Coins&#x1f525;</h4>
+        </div>
+        <div class="trending-coins">
+          <div class="trending-coin-container" id="trending-1">
+            <div class="coin-img-label">
+              <img src="imgs/bitcoin.png" alt="icon for trending coin one" id="icon-coin-1">
+              <label id="name-coin-1"></label>
+              <label id ="price-coin-1" class="coin-prices"></label><br>
+            </div>
+          </div>
+          <div class="trending-coin-container" id="trending-2">
+            <div class="coin-img-label">                           
+              <img src="imgs/bitcoin.png" alt="icon for trending coin two" id="icon-coin-2">
+              <label id="name-coin-2"></label>
+              <label id ="price-coin-2" class="coin-prices"></label><br>
+            </div>
+          </div>
+          <div class="trending-coin-container" id="trending-3">
+            <div class="coin-img-label">
+              <img src="imgs/bitcoin.png" alt="icon for trending coin three" id="icon-coin-3">
+              <label id="name-coin-3"></label>
+              <label id ="price-coin-3" class="coin-prices"></label><br>
+            </div>
+          </div>
+        </div>
+      </section><hr>
+
+      <!-- Crypto live market table -->
+      <section class="live-market" id="market-start" aria-label="CryptoHub's crypto live market">
+        <div class="title">
+          <h4>Crypto Live Market</h4>
+        </div>
+        <div class="market-scroller">
+          <table id="table-market">
+            <thead>
+              <tr>
+                <th class="rank">#</th>
+                <th class="name">Name</th>
+                <th class="price">Price (USD)</th>  
+                <th class="more-data">+</th> 
+                <th class="percent-change-24h">24h %</th>   
+                <th class="market-cap" title="The total market value of a cryptocurrency's circulating supply. 
+                                              It is analogous to the free-float capitalization in the stock market.
+                                              Market Cap = Current Price x Circulating Supply.">Market Cap</th>
+                <th class="volume-24h" title="A measure of how much of a cryptocurrency was traded in the last null.">Volume (24h)</th>
+                <th class="circulating-supply" title="The amount of coins that are circulating in the market and are in public hands. 
+                                                        It is analogous to the flowing shares in the stock market.">Circulating Supply</th>
+              </tr>
+            </thead>
+            <tbody id="market-data-table"></tbody>  
+          </table>
+        </div>
+        <!-- The More Information Popup -->
+        <div id="infoPopup" class="popup">
+          <!-- Popup content -->
+          <div class="popup-content">
+            <div class="popup-header">
+              <span class="closeBtn" id="morePopupCloseBtn">&times;</span>
+              <h2 class="header-text" id="more-info-header">More Info</h2>
+            </div>
+            <div class="popup-body">
+              <p id="popup-twentyFour">24h %:</p><br>
+              <p id="popup-24-val"></p><br><br>
+              <p id="popup-market-cap">Market Cap:</p><br>
+              <p id="popup-market-val"></p><br><br>
+              <p id="popup-volume">Volume (24h):</p><br>
+              <p id="popup-vol-val"></p><br><br>
+              <p id="popup-circulating">Circulating Supply:</p><br>
+              <p id="popup-circ-val"></p>
+            </div>
+            <div class="popup-footer">
+              <h3>CryptoHub</h3>
+            </div>
+          </div>
+        </div>
+        <!-- The Prices within last week popup -->
+        <div class="priceDataPopup">
+          <!-- Popup content -->
+          <div class="pricePopupContent">
+            <div class="popup-header">
+              <span class="closeBtn" id="pricePopupCloseBtn">&times;</span>
+              <h2 class="header-text" aria-label="Price of selected coin in the last week">Price In The Last Week</h2>
+            </div>
+            <div class="popup-body">
+              <p id="popup-minus7"></p><br>
+              <p id="popup-minus6"></p><br>
+              <p id="popup-minus5"></p><br>
+              <p id="popup-minus4"></p><br>
+              <p id="popup-minus3"></p><br>
+              <p id="popup-minus2"></p><br>
+              <p id="popup-minus1"></p><br>
+              <p id="popup-minus0"></p><br>
+            </div>
+            <div class="popup-footer">
+              <h3>CryptoHub</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <span>
+        <button id="toTopBtn" title="Go to top" aria-label="Scroll to top of page">&#x2191;</button>
+      </span>
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2022 | Mohammed Ali Butt<br></p>
+    </footer>
+
+    <script src="js/market.js"></script>
+    <script src="js/dynamic-menu.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+  </body>
+  
+</html>

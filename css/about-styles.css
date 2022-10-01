@@ -1,0 +1,282 @@
+/*************************
+/*	Global Settings
+/************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'poppins', sans-serif;
+  background-color: #9a27c4;
+  overflow: hidden;
+}
+
+/************************************
+/*      Navigation Menu
+/************************************/
+#menuToggler {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+  cursor: pointer;
+	user-select: none;
+	font-size: 3em;
+	text-align: right;
+	line-height: 1em;
+	padding: 0 1rem;
+	z-index: 2;
+}
+
+nav {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	background: hsl(0 0% 100% / 0.1);
+	backdrop-filter: blur(3rem);
+	opacity: 0;
+	transform: translateX(100vw);
+	transition: transform 0.4s, opacity 0.6s;
+	justify-content: center;
+	z-index: 1;
+}
+
+nav.open {
+	transition: transform 0.4s, opacity 0.2s;
+	transform: none;
+	opacity: 1;
+}
+
+nav a {
+	font-size: 2em;
+	text-decoration: none;
+	padding: 0.5em 1em;
+	color: #fff;
+	text-align: center;
+}
+	
+nav a:hover {
+	color:#ff960b;
+	text-decoration: underline overline;
+}
+
+.active {
+	color:#ff0000;
+}
+
+.active:hover {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+/************************
+/*      Transitions
+/************************/
+@keyframes slideInFromLeft {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInFromRight {
+	from {
+		transform: translateX(150%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+/***********************
+/*    section defaults
+/************************/
+.section-left,
+.section-right {
+  width: 100%;
+  height: 33.3vh;
+  display: flex;
+  transition: linear 0.5s;
+}
+
+.section-left:hover {
+  box-shadow: inset 100vw 0px 1px lightsalmon;
+}
+
+.section-right:hover {
+  box-shadow: inset -100vw 0px 1px lightsalmon;
+}
+
+.title {
+  padding: 1em;
+  gap: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  text-align: center;
+}
+
+.title img {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.vl {
+  border-left: 2px solid #333;
+  height: 100%;
+}
+
+.content {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.content p {
+	font-size: 15px;
+}
+
+/*************************
+/*       Sections
+/*************************/
+#top-section {
+	background-color: #f1f1f1;
+	animation-name: slideInFromRight;
+	animation-duration: 2s;
+}
+
+#second-section {
+	background-color: lightblue;
+	animation-name: slideInFromLeft;
+	animation-duration: 2.5s;
+}
+
+#third-section {
+	background-color: lightcoral;
+	animation-name: slideInFromRight;
+	animation-duration: 3s;
+}
+
+/*********************
+/*		Footer
+/*********************/
+footer {
+  position: absolute;
+  width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.5rem;
+	padding: 1em;
+	bottom: 0;
+	background-color: #000;
+	color: #fff;
+}
+	
+footer p {
+	font-size: 16px;
+}
+
+/*media queries for tablet sized devices*/
+/*bigger than default, but smaller than desktop size*/
+@media screen and (min-width: 600px) {
+	.title {
+		font-size: large;
+	}
+
+  .content p {
+		font-size: large;
+	}
+}
+
+/*media queries for desktop sized devices */
+@media screen and (min-width: 768px) {
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	/*hide menu icon for large devices */
+	#menuToggler {
+		display: none;
+	}
+
+	/*re-style the navigation menu for larger devices */
+	nav {
+		display: flex;
+		flex-direction: row;
+		transform: none;
+		background-color: rgba(0,0,0,0.5);
+		opacity: 1;
+		height: auto;
+		position: static;
+		justify-content: center;
+		padding: 2.5vh;
+	}
+
+	nav a {
+		font-size: 1.3em;
+		flex-grow: 0;
+	}
+
+  nav a:hover {
+    text-decoration: underline overline;
+  }
+
+	.active {
+		color: #ff960b;
+	}
+
+	.active:hover {
+		color: #ff960b;
+	}
+
+  .section-left,
+  .section-right {
+    top: 5%;
+    height: 29vh;
+  }
+
+	.vl {
+		border-left: 4px solid #333;
+	}
+
+	.title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: larger;
+	}
+
+	.content p {
+		padding: 1em;
+		font-size: larger;
+	}
+
+  footer {
+		height: 3em;
+		font-size: 20px;
+	}
+
+	footer p {
+		font-size: 20px;
+	}
+}

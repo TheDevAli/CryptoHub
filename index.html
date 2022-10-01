@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CryptoHub</title>
+		<link rel="stylesheet" href="css/index-styles.css">
+		<link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+	</head>
+
+	<body>
+		<!-- Navigation Menu -->
+		<header class="container">
+			<div id="menuToggler">&#8801;</div>
+				<nav id="menu">				
+					<a href="index.html" aria-label="CryptoHub homepage" class="active">Home</a>
+					<a href="market.html" aria-label="CryptoHub market page">Market</a>
+					<a href="portfolio.html" aria-label="CryptoHub portfolio simulator page">Portfolio Simulator</a>		
+					<a href="about.html" aria-label="CryptoHub about page">About CryptoHub</a>							
+				</nav>
+
+				<!-- Header content -->
+			<div class="header-content">
+				<div>
+					<h1>Analyse<span> Crypto</span></h1>
+					<p>Explore the Cryptocurrency market on the web as well as mobile phone</p>
+					<a href="#crypto-desc" class="btn" aria-label="Find out more about CryptoHub">FIND OUT MORE</a>
+				</div>
+			</div>
+		</header> 
+
+		<main>
+			<!-- What is crypto description section -->
+			<section id="crypto-desc" aria-label="CryptoHub's description">
+				<h2 id="desktop-header">What is Crypto?</h2>
+				<h2 id="mobile-header">What is CryptoHub?</h2>
+				<p id="crypto-definition">"A cryptocurrency, crypto-currency, or crypto is a digital currency designed to work
+				as a medium of exchange through a computer network that is not reliant on any central authority, such as
+				a government or bank, to uphold or maintain it. Individual
+				coin ownership records are stored in a digital ledger, which is a computerized database using strong
+				cryptography to secure transaction records, to control the creation of additional coins, and to verify
+				the transfer of coin ownership.Despite
+				their name, cryptocurrencies are not necessarily considered to be currencies in the traditional sense
+				and while varying categorical treatments have been applied to them, including classification as
+				commodities, securities, as well as currencies,
+				cryptocurrencies are generally viewed as a distinct asset class in practice.Some crypto schemes use
+				validators to maintain the cryptocurrency. In a proof-of-stake model, owners put up their tokens as
+				collateral. In return, they get authority
+				over the token in proportion to the amount they stake. Generally, these token stakers get additional
+				ownership in the token over time via network fees, newly minted tokens or other such reward mechanisms".</p>
+				<p><strong>CryptoHUB</strong> allows you to explore the cryptocurrency market and its rates that are updated 
+				quickly making sure you never fall behind. Provided is a portfolio section that allows you to input the
+				contents of your wallet to calculate total crypto assets value. There is no need to sign-up or login as data 
+				is saved locally on your system therefore, when you re-visit the site, your portfolio will be updated to 
+				the current rate and ready to be modified.</p>				
+			</section>
+
+			<!-- Big three section show three cards with API fetched data -->
+			<section class="big-three" aria-label="CryptoHub's big three crypto coins">
+				<h2>THE BIG THREE</h2><br>
+				<div class="crypto-card">
+					<a href="https://ethereum.org/en/" class="card" aria-label="Go to ethereum's website for more information">
+					<img src="imgs/ethereum.png" alt="ethereum icon">
+					<div>
+						<h3>Ethereum (ETH)</h3>
+						<p id="ethereum"></p>
+					</div>
+					</a>
+					<br>
+					<a href="https://bitcoin.org/en/" class="card" aria-label="Go to bitcoin's website for more information">
+					<img src="imgs/bitcoin.png" alt="bitcoin icon">
+					<div>
+						<h3>Bitcoin (BTC)</h3>
+						<p id="bitcoin"></p>
+					</div>
+					</a>
+					<br>
+					<a href="https://litecoin.com/en/" class="card" aria-label="Go to litecoin's website for more information">
+					<img src="imgs/litecoin.png" alt="litecoin icon">
+					<div>
+						<h3>Litecoin (LTC)</h3>
+						<p id="litecoin"></p>
+					</div>
+					</a>
+					<br>
+				</div>
+			</section>
+
+			<span>
+				<button id="toTopBtn" title="Go to top" aria-label="Scroll to top of page">&#x2191;</button>
+			</span>
+		</main>
+
+		<footer>
+			<p>&copy; Copyright 2022 | Mohammed Ali Butt<br></p>
+		</footer>
+
+		<script src="js/index.js"></script>
+		<script src="js/dynamic-menu.js"></script>
+		<script src="js/scroll-to-top.js"></script>
+	</body>
+
+</html>
